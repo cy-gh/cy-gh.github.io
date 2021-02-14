@@ -27,6 +27,7 @@ interface Result<T, E> {
 // @ts-check
 ```
 
+
 3. Implement the Result constructor in your .js:
 ```javascript
 /**
@@ -61,6 +62,7 @@ function ResultOk(okValue) {
  */
 function ResultErr(errValue) { return new Result(false, errValue||true); }
 ```
+
 
 4. Now you can use it, eg by defining the Result types in your JSDoc.
 ```javascript
@@ -98,7 +100,6 @@ function otherCaller() {
     // typing res.ok. and pressing Ctrl-Space will show Thread's id field automatically
     // console.log(res.ok.id);
 }
-
 
 /** @returns {Result.<string, string>} */
 function yetAnotherDoStuff(value) {
