@@ -114,7 +114,6 @@ function yetAnotherDoStuff(value) {
 }
 ```
 
-
 5. Win. WSH will have no clue what's going on under its nose :D
 
 VSCode uses the .d.ts and JSDoc information to infer the types in `result.ok` and `result.err` automatically. It works for JS-builtin objects like boolean, string, etc. as well as custom classes you define. Compared to the simpler alternative `@returns {successType|false}` this is much more standardized, and if you prefer you can also use falsy values as `ok`. Also in the simpler alternative, your `err` value must be always distinct from any `ok` value, whereas with Result you can also use the same type in both `ok` and `err`, eg both strings or both booleans, which is a huge advantage.
