@@ -214,7 +214,7 @@ Then I gave up hope and tried to get more help from JS Exceptions/Errors.
   function someMethod() {
       // DISABLED: throw new FileReadWriteException('something bad happened', someMethod);
   }
-  
+
   /**
    * I needed something like an interface, where all Exceptions implement the same interface
    * so unfortunately I had to implement this kinda ugly solution.
@@ -234,7 +234,7 @@ Then I gave up hope and tried to get more help from JS Exceptions/Errors.
           	? funcNameExtractor(where)
       		: where;
   }
-  
+
   /** @constructor @param {string} message @param {string} where */
   function NotImplementedYetException(message, where) {
       this.message='';
@@ -250,17 +250,17 @@ Then I gave up hope and tried to get more help from JS Exceptions/Errors.
       UserException.call(this, FileReadWriteException, message, where);
   }
   // ... other exceptions ...
-  
+
   ```
 
-  
+
 
 * But even with the where info, there is no way of knowing which callstack an exception goes through, between the point where they were raised and the point where they are caught. For small programs it's not a big deal to keep an overview, but if scripts grow and some common methods are called at every possible hierarchy level, we lose track.
 
   All because of not having a debugger and stack trace :/
 
 * Also, some exceptions are easily recoverable but without a catch block and more importantly **a complete rework of all JSDocs** from all methods which raise an exception to all their callers, and their callers' callers, there is no way of knowing if a method call on a higher level should expect an exception.
-  
+
 
 This can be simply "fixed" though if all top level methods wrap sub-calls within try-catch blocks, i.e. we handle exceptions only on higher levels, not intermediate/deeper levels, etc.
 
