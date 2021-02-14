@@ -12,7 +12,7 @@ All JScript talk left aside, this works in ECMAScript and TypeScript as well, wi
 
 ## Short answer
 
-1. Create `NewFile.d.ts` file with the interface definition:
+- Create `NewFile.d.ts` file with the interface definition:
 
 ```javascript
 interface Result<T, E> {
@@ -22,7 +22,7 @@ interface Result<T, E> {
 }
 ```
 
-2. Put the link to `NewFile.d.ts` at the top of your JScript, JavaScript, etc.
+- Put the link to `NewFile.d.ts` at the top of your JScript, JavaScript, etc.
 
 ```javascript
 ///<reference path="./NewFile.d.ts" />
@@ -30,7 +30,7 @@ interface Result<T, E> {
 ```
 
 
-3. Implement the Result constructor in your .js:
+- Implement the Result constructor in your .js:
 
 ```javascript
 /**
@@ -67,7 +67,7 @@ function ResultErr(errValue) { return new Result(false, errValue||true); }
 ```
 
 
-4. Now you can use it, eg by defining the Result types in your JSDoc.
+- Now you can use it, eg by defining the Result types in your JSDoc.
 
 ```javascript
 /* @returns {Result.<number, string>} number on success, error string on error */
@@ -120,7 +120,7 @@ function yetAnotherDoStuff(value) {
 ```
 
 
-5. Win! WSH will have no clue what's going on under its nose :D
+- Win! WSH will have no clue what's going on under its nose :D
 
 
 
